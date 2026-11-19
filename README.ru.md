@@ -1,75 +1,138 @@
-<div align="center">
+<p align="center">
+  <img src="assets/glass-dawn.svg" alt="asszxc — Glass Dawn" width="100%">
+</p>
 
-# asszxc / Glass Dawn
+<h1 align="center">asszxc / Glass Dawn</h1>
 
-Настраиваемая стеклянная тема для BetterDiscord.
+<p align="center">
+  Стеклянный интерфейс Discord. Настрой его под себя.
+</p>
 
-![Версия](https://img.shields.io/badge/version-1.0.0-33333d?style=flat-square)
-![Платформа](https://img.shields.io/badge/platform-BetterDiscord-33333d?style=flat-square)
-![Лицензия](https://img.shields.io/badge/license-MIT-33333d?style=flat-square)
+<p align="center">
+  <a href="https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxc.theme.css"><img alt="Скачать тему" src="https://img.shields.io/badge/THEME-1.0.0-c6bcc7?style=for-the-badge&amp;logo=css&amp;logoColor=white&amp;labelColor=25232c"></a>
+  <a href="https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxcSettings.plugin.js"><img alt="Скачать плагин" src="https://img.shields.io/badge/SETTINGS-1.0.0-b9c6da?style=for-the-badge&amp;logo=javascript&amp;logoColor=white&amp;labelColor=25232c"></a>
+</p>
 
-[Скачать тему](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxc.theme.css) · [Скачать плагин](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxcSettings.plugin.js) · [English](README.md)
+<p align="center">
+  <a href="https://github.com/Meldixx/asszxc-discord/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Meldixx/asszxc-discord?style=flat-square&amp;color=c6bcc7"></a>
+  <a href="https://github.com/Meldixx/asszxc-discord/issues"><img alt="Issues" src="https://img.shields.io/github/issues/Meldixx/asszxc-discord?style=flat-square&amp;color=c6bcc7"></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-c6bcc7?style=flat-square"></a>
+  <a href="https://betterdiscord.app/"><img alt="BetterDiscord" src="https://img.shields.io/badge/BetterDiscord-desktop-5865f2?style=flat-square"></a>
+</p>
 
-</div>
+<p align="center">
+   <a href="README.md">English</a> · <strong>Русский</strong>
+  &nbsp;·&nbsp; <a href="https://github.com/Meldixx/asszxc-discord/issues">Поддержка</a>
+  &nbsp;·&nbsp; <a href="https://github.com/Meldixx/asszxc-discord/releases">Релизы</a>
+</p>
 
-## О проекте
+---
 
-Glass Dawn объединяет интерфейс Discord в едином стеклянном стиле с настраиваемым фоном, мягким размытием, минималистичными элементами и анимированным логотипом. Тему можно использовать отдельно или вместе с asszxc Settings для настройки оформления непосредственно в BetterDiscord.
+## Дизайн
 
-## Возможности
+Glass Dawn объединяет мягкое размытие, полупрозрачные поверхности и спокойную палитру Discord. Установи собственные обои или оставь стандартное оформление, а с помощью дополнительного плагина **asszxc Settings** настраивай интерфейс без редактирования CSS.
 
-- Полупрозрачные панели каналов, личных сообщений, друзей, профилей и настроек.
-- Собственные обои, положение, масштаб, оттенок и затемнение.
-- Настраиваемое размытие, насыщенность, прозрачность панелей и цвета.
-- Анимированный логотип со шрифтом Orbitron и единая стандартная компоновка.
-- 46 параметров в четырёх категориях.
-- Русский и английский интерфейс настроек, мгновенное применение изменений, локальное сохранение и сброс.
+| Стеклянный интерфейс | Индивидуальное оформление |
+| :--- | :--- |
+| Прозрачные каналы, ЛС, профили и настройки | Обои, оттенки, затемнение и насыщенность |
+| Мягкие границы и минималистичные элементы | Цвета и прозрачность панелей |
+| Анимированный логотип Orbitron | 46 настроек на русском и английском |
 
-## Скачать
+## Скачать и установить
 
-| Компонент | Версия | Файл |
-| --- | --- | --- |
-| asszxc Theme | 1.0.0 | [asszxc.theme.css](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxc.theme.css) |
-| asszxc Settings | 1.0.0 | [asszxcSettings.plugin.js](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxcSettings.plugin.js) |
+Оба компонента доступны напрямую с GitHub. Тему можно использовать без плагина настроек.
 
-## Установка
+<details open>
+<summary><strong>01 — Установка темы</strong></summary>
 
 1. Установи [BetterDiscord](https://betterdiscord.app/).
-2. Открой Discord → Настройки пользователя → BetterDiscord → Темы → Открыть папку тем.
-3. Сохрани `asszxc.theme.css` в эту папку и включи тему.
-4. При необходимости открой BetterDiscord → Плагины → Открыть папку плагинов. Сохрани туда `asszxcSettings.plugin.js` и включи его.
-5. Нажми шестерёнку на карточке плагина **asszxc Settings**.
+2. Скачай [`asszxc.theme.css`](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxc.theme.css).
+3. Открой **Настройки пользователя → BetterDiscord → Темы → Открыть папку тем**.
+4. Перемести CSS-файл в эту папку и включи **asszxc**.
+5. При необходимости отключи конфликтующие темы.
 
-При конфликте отключи другие темы. Плагин не обязателен для работы темы.
+</details>
 
-## Настройка
+<details>
+<summary><strong>02 — Установка плагина настроек (необязательно)</strong></summary>
 
-| Категория | Параметры |
-| --- | --- |
-| Фон | HTTPS-ссылка или локальное изображение до 8 МБ, положение, масштаб, оттенок и затемнение |
-| Стекло | Размытие окна и меню, насыщенность |
-| Панели | Цвета поверхностей, прозрачность, границы, наведение и выделение |
-| Цвета | Текст, ссылки, акценты, обводка фокуса и кнопки |
+1. Скачай [`asszxcSettings.plugin.js`](https://raw.githubusercontent.com/Meldixx/asszxc-discord/main/asszxcSettings.plugin.js).
+2. Открой **Настройки пользователя → BetterDiscord → Плагины → Открыть папку плагинов**.
+3. Перемести JS-файл в эту папку и включи **asszxc Settings**.
+4. Нажми шестерёнку на карточке плагина для настройки темы.
 
-Изменения сохраняются локально и применяются, пока тема включена. Кнопка **Сбросить всё** возвращает стандартное оформление. Дополнительные параметры можно изменить через переменные CSS; компоновка и логотип не настраиваются через плагин.
+</details>
 
-## Совместимость и конфиденциальность
+<details>
+<summary><strong>03 — Обновление или переустановка</strong></summary>
 
-Тема предназначена для настольного клиента BetterDiscord. Обновления Discord могут затрагивать отдельные CSS-селекторы; совместимость этого релиза в реальном клиенте ещё требует проверки. Плагин не предназначен для Vencord.
+Скачай актуальные файлы по кнопкам выше, замени существующие файлы в соответствующих папках и перезагрузи Discord сочетанием `Ctrl + R`. Сохрани копию ручных изменений CSS, если они есть.
 
-Плагин не собирает сообщения или данные аккаунта и не содержит аналитики или телеметрии. Настройки и локальные изображения хранятся через локальный API BetterDiscord. Внешние обои и шрифты загружаются с соответствующих серверов. Подробнее — [сторонние ресурсы](THIRD-PARTY.md), включая сведения о необходимости проверки прав на стандартные обои.
+</details>
 
-## Поддержка
+## Настрой под себя
 
-Сообщай о визуальных проблемах и воспроизводимых ошибках в [GitHub Issues](https://github.com/Meldixx/asszxc-discord/issues). Укажи версии Discord и BetterDiscord, проблемный раздел и приложи скриншот без личных данных.
+В плагине доступно 46 параметров, разделённых на четыре категории. Изменения применяются сразу, пока тема включена, и сохраняются локально.
 
-Для проверки исходников:
+| Категория | Что можно изменить |
+| :--- | :--- |
+| **Фон** | HTTPS-ссылка на обои, локальный файл до 8 МБ, положение, масштаб, оттенок и затемнение |
+| **Стекло** | Размытие окна и меню, насыщенность |
+| **Панели** | Цвета поверхностей, прозрачность, границы, наведение, выделение и полоса прокрутки |
+| **Цвета** | Текст, ссылки, фокус, акценты и цвета кнопок |
+
+Кнопка **Сбросить всё** возвращает стандартное оформление. Для расширенной настройки можно менять переменные в начале CSS-файла. Компоновка и логотип намеренно не вынесены в настройки плагина.
+
+<details>
+<summary>Ручная настройка CSS</summary>
+
+Редактируй блок `:root` в файле `asszxc.theme.css`. Например:
+
+```css
+--az-blur: 6px;
+--az-popup-blur: 14px;
+--az-glass-opacity: .12;
+--az-sidebar-opacity: .18;
+--az-accent: #c6bcc7;
+```
+
+Это стандартные значения. Если параметр изменён в плагине, его сохранённое значение имеет приоритет.
+
+</details>
+
+## Поддержка и совместимость
+
+Нашёл ошибку? Создай [GitHub issue](https://github.com/Meldixx/asszxc-discord/issues/new), укажи версии Discord и BetterDiscord, опиши проблемный раздел и приложи скриншот без личных данных.
+
+> [!NOTE]
+> Glass Dawn предназначен для настольного BetterDiscord. Обновления Discord могут менять CSS-селекторы; совместимость этого релиза в реальном клиенте ещё требует проверки. Плагин настроек не предназначен для Vencord.
+
+<details>
+<summary>Конфиденциальность и внешние ресурсы</summary>
+
+Плагин не содержит аналитики и телеметрии, не собирает сообщения или данные аккаунта. Настройки и локальные изображения хранятся через локальный API BetterDiscord. Внешние обои и шрифты загружаются с соответствующих серверов. Подробнее — [сторонние ресурсы](THIRD-PARTY.md), в том числе сведения о необходимости проверки прав на стандартные обои.
+
+</details>
+
+<details>
+<summary>Проверка исходников</summary>
 
 ```sh
 node --check asszxcSettings.plugin.js
 node --test tests/settings.test.cjs
 ```
 
-## Лицензия
+</details>
 
-[MIT](LICENSE) распространяется на оригинальный код, на который у распространителя имеются необходимые права. Внешние ресурсы используются на собственных условиях. Glass Dawn распространяется независимо, не связан с Discord или BetterDiscord и не одобрен официальным каталогом BetterDiscord. Текущая реализация не соответствует требованиям каталога к авторству.
+## Проект
+
+Разработчик и сопровождающий проекта — [asszxc / Meldixx](https://github.com/Meldixx). Проект распространяется независимо через GitHub.
+
+[Лицензия MIT](LICENSE) распространяется на оригинальный код, на который у распространителя имеются необходимые права. Внешние ресурсы используются на собственных условиях; см. [THIRD-PARTY.md](THIRD-PARTY.md). Проект не связан с Discord или BetterDiscord, не одобрен официальным каталогом BetterDiscord, а текущая реализация не соответствует требованиям каталога к авторству.
+
+---
+
+<p align="center">
+  <strong>asszxc / Glass Dawn</strong><br>
+  <sub>Версия 1.0.0 · <a href="LICENSE">MIT</a> · <a href="README.md">English</a></sub>
+</p>
