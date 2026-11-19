@@ -1,0 +1,750 @@
+/**
+ * @name asszxc
+ * @author asszxc
+ * @source https://github.com/Meldixx/asszxc-discord
+ * @version 1.0.0
+ * @description Glass Dawn — customizable glassmorphism theme for BetterDiscord.
+ */
+
+:root {
+    /* wallpaper */
+    --az-wallpaper: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=80");
+    --az-position: center;
+    --az-wallpaper-size: cover;
+    --az-base: #101522;
+    --az-fallback-top: #8e7276;
+    --az-fallback-middle: #1b3049;
+    --az-fallback-bottom: #0a1728;
+    --az-tint: 16, 19, 28;
+    --az-tint-bottom: 7, 13, 24;
+    --az-dim: .48;
+    --az-dim-bottom: .65;
+    --az-blur: 6px;
+    --az-saturate: 100%;
+    --az-popup-blur: 14px;
+    --az-settings-dim: .69;
+    --az-settings-dim-bottom: .81;
+
+    /* panels */
+    --az-glass-rgb: 17, 19, 27;
+    --az-glass-opacity: .12;
+    --az-sidebar-rgb: 13, 16, 24;
+    --az-sidebar-opacity: .18;
+    --az-card-rgb: 17, 20, 29;
+    --az-card-opacity: .32;
+    --az-input-rgb: 12, 15, 22;
+    --az-input-opacity: .38;
+    --az-popup-rgb: 23, 25, 35;
+    --az-popup-opacity: .83;
+    --az-modal-rgb: 18, 20, 29;
+    --az-modal-opacity: .69;
+    --az-line-rgb: 255, 255, 255;
+    --az-line-opacity: .11;
+    --az-hover-opacity: .075;
+    --az-selected-opacity: .15;
+    --az-scrollbar-opacity: .15;
+
+    /* text */
+    --az-text: #f1f0f3;
+    --az-muted: #c0bdc4;
+    --az-faint: #aaa7af;
+    --az-accent: #c6bcc7;
+    --az-accent-pressed: #9b929f;
+    --az-focus: #d0c5d4;
+    --az-link: #b9d5ff;
+    --az-button-rgb: 255, 255, 255;
+    --az-button-opacity: .19;
+    --az-button-hover-opacity: .26;
+    --az-button-active-opacity: .32;
+    --az-legacy-button-opacity: .17;
+    --az-legacy-hover-opacity: .25;
+
+    /* geometry */
+    --az-radius: 10px;
+    --az-gap: 16px;
+    --az-brand: "asszxc";
+    --az-brand-display: inline-block;
+
+    /* logo */
+    --az-logo-font: "AZ Orbitron";
+    --az-logo-size: 11px;
+    --az-logo-spacing: 2px;
+    --az-logo-radius: 7px;
+    --az-logo-color: #f4f0f5;
+    --az-logo-glow: #e1cadd;
+    --az-logo-speed: 260ms;
+    --az-logo-lift: -1px;
+
+    /* derived */
+    --az-glass: rgba(var(--az-glass-rgb), var(--az-glass-opacity));
+    --az-sidebar: rgba(var(--az-sidebar-rgb), var(--az-sidebar-opacity));
+    --az-card: rgba(var(--az-card-rgb), var(--az-card-opacity));
+    --az-input: rgba(var(--az-input-rgb), var(--az-input-opacity));
+    --az-popup: rgba(var(--az-popup-rgb), var(--az-popup-opacity));
+    --az-modal: rgba(var(--az-modal-rgb), var(--az-modal-opacity));
+    --az-line: rgba(var(--az-line-rgb), var(--az-line-opacity));
+    --az-hover: rgba(255, 255, 255, var(--az-hover-opacity));
+    --az-selected: rgba(255, 255, 255, var(--az-selected-opacity));
+}
+
+/* Orbitron (SIL OFL 1.1) */
+@font-face {
+    font-family: "AZ Orbitron";
+    src: local("Orbitron Bold"), url("https://cdn.jsdelivr.net/npm/@fontsource/orbitron/files/orbitron-latin-700-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+html, body, #app-mount,
+#app-mount :where(*) {
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-secondary-alt: transparent !important;
+    --background-tertiary: transparent !important;
+    --background-base-lowest: transparent !important;
+    --background-base-lower: transparent !important;
+    --background-base-low: transparent !important;
+    --background-base: transparent !important;
+    --background-mobile-primary: transparent !important;
+    --background-mobile-secondary: transparent !important;
+    --bg-base-primary: transparent !important;
+    --bg-base-secondary: transparent !important;
+    --bg-base-tertiary: transparent !important;
+    --app-frame-background: transparent !important;
+    --app-frame-border: transparent !important;
+    --chat-background: transparent !important;
+    --chat-background-default: transparent !important;
+    --home-background: transparent !important;
+    --activity-card-background: transparent !important;
+    --deprecated-panel-background: transparent !important;
+    --bg-surface-header: transparent !important;
+    --settings-background: transparent !important;
+    --settings-sidebar-background: transparent !important;
+    --background-surface-high: var(--az-card) !important;
+    --background-accent: var(--az-card) !important;
+    --bg-surface-raised: var(--az-card) !important;
+    --card-background-default: var(--az-card) !important;
+    --card-gradient-bg: var(--az-card) !important;
+    --card-primary-bg: var(--az-card) !important;
+    --card-secondary-bg: var(--az-card) !important;
+    --card-gradient-pressed-bg: var(--az-card) !important;
+    --card-primary-pressed-bg: var(--az-card) !important;
+    --card-secondary-pressed-bg: var(--az-card) !important;
+    --background-code: var(--az-card) !important;
+    --background-floating: var(--az-popup) !important;
+    --background-nested-floating: var(--az-popup) !important;
+    --background-surface-higher: var(--az-popup) !important;
+    --background-surface-highest: var(--az-popup) !important;
+    --bg-surface-overlay: var(--az-popup) !important;
+    --bg-surface-raised-2: var(--az-popup) !important;
+    --modal-background: var(--az-modal) !important;
+    --modal-footer-background: var(--az-modal) !important;
+    --input-background: var(--az-input) !important;
+    --input-background-default: var(--az-input) !important;
+    --channeltextarea-background: var(--az-input) !important;
+    --background-mod-faint: var(--az-hover) !important;
+    --background-mod-subtle: var(--az-hover) !important;
+    --background-modifier-hover: var(--az-hover) !important;
+    --background-message-hover: var(--az-hover) !important;
+    --background-mod-normal: var(--az-selected) !important;
+    --background-mod-strong: var(--az-selected) !important;
+    --background-modifier-active: var(--az-selected) !important;
+    --background-modifier-selected: var(--az-selected) !important;
+    --border-faint: var(--az-line) !important;
+    --border-subtle: var(--az-line) !important;
+    --border-normal: var(--az-line) !important;
+    --divider-faint: var(--az-line) !important;
+    --divider-subtle: var(--az-line) !important;
+    --background-modifier-accent: var(--az-line) !important;
+    --input-border: var(--az-line) !important;
+    --input-border-default: var(--az-line) !important;
+    --chat-border: var(--az-line) !important;
+    --app-border-frame: var(--az-line) !important;
+    --background-mentioned: rgba(234, 184, 95, .10) !important;
+    --background-mentioned-hover: rgba(234, 184, 95, .10) !important;
+    --background-message-highlight: rgba(170, 185, 220, .10) !important;
+    --background-message-highlight-hover: rgba(170, 185, 220, .10) !important;
+    --scrollbar-auto-track: transparent !important;
+    --scrollbar-thin-track: transparent !important;
+    --scrollbar-auto-thumb: rgba(255, 255, 255, var(--az-scrollbar-opacity)) !important;
+    --scrollbar-thin-thumb: rgba(255, 255, 255, var(--az-scrollbar-opacity)) !important;
+}
+
+html, body, #app-mount,
+#app-mount :is(.theme-dark, .theme-darker, .theme-midnight, .theme-amoled, .theme-light, .visual-refresh) {
+    color-scheme: dark;
+    --text-normal: var(--az-text) !important;
+    --text-default: var(--az-text) !important;
+    --text-strong: var(--az-text) !important;
+    --header-primary: var(--az-text) !important;
+    --interactive-active: var(--az-text) !important;
+    --interactive-hover: var(--az-text) !important;
+    --interactive-text-active: var(--az-text) !important;
+    --interactive-text-hover: var(--az-text) !important;
+    --text-secondary: var(--az-muted) !important;
+    --text-subtle: var(--az-muted) !important;
+    --header-secondary: var(--az-muted) !important;
+    --interactive-normal: var(--az-muted) !important;
+    --interactive-text-default: var(--az-muted) !important;
+    --interactive-icon-default: var(--az-muted) !important;
+    --channels-default: var(--az-muted) !important;
+    --text-muted: var(--az-faint) !important;
+    --text-tertiary: var(--az-faint) !important;
+    --channel-icon: var(--az-faint) !important;
+    --icon-muted: var(--az-faint) !important;
+    --icon-subtle: var(--az-faint) !important;
+    --channel-text-area-placeholder: var(--az-faint) !important;
+    --text-link: var(--az-link) !important;
+    --text-brand: var(--az-link) !important;
+    --brand-500: var(--az-accent) !important;
+    --brand-530: var(--az-accent) !important;
+    --brand-experiment: var(--az-accent) !important;
+    --brand-560: var(--az-accent-pressed) !important;
+    --brand-600: var(--az-accent-pressed) !important;
+    --brand-experiment-560: var(--az-accent-pressed) !important;
+    --brand-experiment-600: var(--az-accent-pressed) !important;
+    --button-filled-brand-background: rgba(var(--az-button-rgb), var(--az-button-opacity)) !important;
+    --control-brand-background: rgba(var(--az-button-rgb), var(--az-button-opacity)) !important;
+    --control-primary-background-default: rgba(var(--az-button-rgb), var(--az-button-opacity)) !important;
+    --bg-brand: rgba(var(--az-button-rgb), var(--az-button-opacity)) !important;
+    --button-filled-brand-background-hover: rgba(var(--az-button-rgb), var(--az-button-hover-opacity)) !important;
+    --control-brand-background-hover: rgba(var(--az-button-rgb), var(--az-button-hover-opacity)) !important;
+    --control-primary-background-hover: rgba(var(--az-button-rgb), var(--az-button-hover-opacity)) !important;
+    --button-filled-brand-background-active: rgba(var(--az-button-rgb), var(--az-button-active-opacity)) !important;
+    --control-primary-background-active: rgba(var(--az-button-rgb), var(--az-button-active-opacity)) !important;
+    --button-filled-brand-text: #fff !important;
+    --control-brand-foreground: #fff !important;
+    --control-primary-text-default: #fff !important;
+    --focus-primary: var(--az-focus) !important;
+    --border-focus: var(--az-focus) !important;
+    --control-primary-border-default: var(--az-line) !important;
+}
+
+html, body { background: var(--az-base) !important; }
+
+#app-mount {
+    background-color: var(--az-base) !important;
+    background-image: linear-gradient(rgba(var(--az-tint), var(--az-dim)), rgba(var(--az-tint-bottom), var(--az-dim-bottom))), var(--az-wallpaper), linear-gradient(155deg, var(--az-fallback-top), var(--az-fallback-middle) 62%, var(--az-fallback-bottom)) !important;
+    background-position: center, var(--az-position), center !important;
+    background-size: cover, var(--az-wallpaper-size), cover !important;
+    background-repeat: no-repeat !important;
+    isolation: isolate;
+}
+
+#app-mount :is([class^="app_"], [class*=" app_"],
+    [class^="appMount_"], [class*=" appMount_"],
+    [class^="bg_"], [class*=" bg_"],
+    [class^="layers_"], [class*=" layers_"],
+    [class^="layer_"], [class*=" layer_"],
+    [class^="baseLayer_"], [class*=" baseLayer_"],
+    [class^="base_"], [class*=" base_"],
+    [class^="loading_"], [class*=" loading_"]) {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+#app-mount :is([class^="base_"], [class*=" base_"]) > :is([class^="content_"], [class*=" content_"]):has(> :is([class^="sidebar_"], [class*=" sidebar_"])) {
+    background-color: var(--az-glass) !important;
+    border-radius: var(--az-radius);
+    margin-inline: var(--az-gap);
+    margin-bottom: var(--az-gap);
+    backdrop-filter: blur(var(--az-blur)) saturate(var(--az-saturate));
+}
+
+#app-mount :is([class^="sidebar_"], [class*=" sidebar_"],
+    [class^="sidebarList_"], [class*=" sidebarList_"],
+    [class^="guilds_"], [class*=" guilds_"],
+    [class^="privateChannels_"], [class*=" privateChannels_"],
+    [class^="chat_"], [class*=" chat_"],
+    [class^="chatContent_"], [class*=" chatContent_"],
+    [class^="messagesWrapper_"], [class*=" messagesWrapper_"],
+    [class^="messageList_"], [class*=" messageList_"],
+    [class^="scrollerInner_"], [class*=" scrollerInner_"],
+    [class^="members_"], [class*=" members_"],
+    [class^="membersWrap_"], [class*=" membersWrap_"],
+    [class^="nowPlayingColumn_"], [class*=" nowPlayingColumn_"],
+    [class^="peopleColumn_"], [class*=" peopleColumn_"],
+    [class^="tabBody_"], [class*=" tabBody_"],
+    [class^="pageBody_"], [class*=" pageBody_"],
+    [class^="noChannel_"], [class*=" noChannel_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="homeWrapper_"], [class*=" homeWrapper_"],
+    [class^="mainPageScroller_"], [class*=" mainPageScroller_"],
+    [class^="allPerksScroller_"], [class*=" allPerksScroller_"],
+    [class^="containerBackground_"], [class*=" containerBackground_"],
+    [class^="shop_"], [class*=" shop_"],
+    [class^="shopScroll_"], [class*=" shopScroll_"],
+    [class^="pageContainer_"], [class*=" pageContainer_"],
+    [class^="contentRegion_"], [class*=" contentRegion_"],
+    [class^="contentRegionScroller_"], [class*=" contentRegionScroller_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"],
+    [class^="sidebarRegion_"], [class*=" sidebarRegion_"],
+    [class^="sidebarRegionScroller_"], [class*=" sidebarRegionScroller_"],
+    [class^="contentColumn_"], [class*=" contentColumn_"],
+    [class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="profilePanel_"], [class*=" profilePanel_"],
+    [class^="userPanelOuter_"], [class*=" userPanelOuter_"],
+    [class^="userPanelInner_"], [class*=" userPanelInner_"],
+    [class^="userProfileOuter_"], [class*=" userProfileOuter_"],
+    [class^="userProfileInner_"], [class*=" userProfileInner_"],
+    [class^="fullSizeOuter_"], [class*=" fullSizeOuter_"],
+    [class^="overlayBackground_"], [class*=" overlayBackground_"],
+    [class^="userProfileModalOuter_"], [class*=" userProfileModalOuter_"],
+    [class^="userProfileModalInner_"], [class*=" userProfileModalInner_"],
+    [class^="profilePanelConnections_"], [class*=" profilePanelConnections_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="privateChannels_"], [class*=" privateChannels_"],
+    [class^="chat_"], [class*=" chat_"],
+    [class^="chatContent_"], [class*=" chatContent_"],
+    [class^="messagesWrapper_"], [class*=" messagesWrapper_"],
+    [class^="members_"], [class*=" members_"],
+    [class^="membersWrap_"], [class*=" membersWrap_"],
+    [class^="tabBody_"], [class*=" tabBody_"],
+    [class^="pageBody_"], [class*=" pageBody_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="homeWrapper_"], [class*=" homeWrapper_"],
+    [class^="mainPageScroller_"], [class*=" mainPageScroller_"],
+    [class^="allPerksScroller_"], [class*=" allPerksScroller_"],
+    [class^="containerBackground_"], [class*=" containerBackground_"],
+    [class^="shop_"], [class*=" shop_"],
+    [class^="shopScroll_"], [class*=" shopScroll_"],
+    [class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"],
+    [class^="contentRegion_"], [class*=" contentRegion_"],
+    [class^="contentRegionScroller_"], [class*=" contentRegionScroller_"],
+    [class^="sidebarRegionScroller_"], [class*=" sidebarRegionScroller_"]) {
+    background-image: none !important;
+}
+
+#app-mount :is([class^="privateChannels_"], [class*=" privateChannels_"],
+    [class^="chatContent_"], [class*=" chatContent_"],
+    [class^="membersWrap_"], [class*=" membersWrap_"],
+    [class^="nowPlayingColumn_"], [class*=" nowPlayingColumn_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="shop_"], [class*=" shop_"],
+    [class^="shopScroll_"], [class*=" shopScroll_"],
+    [class^="pageBody_"], [class*=" pageBody_"],
+    [class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"],
+    [class^="profilePanel_"], [class*=" profilePanel_"],
+    [class^="userPanelOuter_"], [class*=" userPanelOuter_"]) :is([class^="scroller_"], [class*=" scroller_"],
+    [class^="scrollerBase_"], [class*=" scrollerBase_"],
+    [class^="scrollerInner_"], [class*=" scrollerInner_"],
+    [class^="list_"], [class*=" list_"],
+    [class^="contentScroller_"], [class*=" contentScroller_"],
+    [class^="scrollContainer_"], [class*=" scrollContainer_"],
+    [class^="contentRegionScroller_"], [class*=" contentRegionScroller_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is(.container_H5ozaj, .container_XH4OpX, .header_XH4OpX, .scroller_Bce46W, .container_86es0b, .container_zrUwGA, .container_GNEh_C, .container_BkGrJJ, .container_rhYbEd, .contentContainer_rhYbEd, .container_xTP3zy, .container_FrbQJp, .wrapper_gFyPwI, .content_wH1nhw, .scroller_f48ee4, .page_4Qm5zV, .containerSidenav_XtY2mm, .container_GQJi50, .scroller_jkJlMe, .container_pI94My, .scrollerBase_JFqgFB, .modalContentInner__F9ieB) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="base_"], [class*=" base_"]) > :is([class^="content_"], [class*=" content_"]) > :is([class^="page_"], [class*=" page_"],
+    [class^="container_"], [class*=" container_"]),
+#app-mount :is([class^="chat_"], [class*=" chat_"]) > :is([class^="content_"], [class*=" content_"]),
+#app-mount :is([class^="page_"], [class*=" page_"]) > :is([class^="shop_"], [class*=" shop_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="containerBackground_"], [class*=" containerBackground_"],
+    [class^="pageBody_"], [class*=" pageBody_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="sidebarList_"], [class*=" sidebarList_"]) {
+    background-color: var(--az-sidebar) !important;
+    border-radius: var(--az-radius) 0 0 var(--az-radius);
+    box-shadow: inset -1px 0 var(--az-line);
+}
+
+#app-mount :is(.wrapper_5dqHTG, nav[class^="guilds_"], nav[class*=" guilds_"]) {
+    background-color: var(--az-sidebar) !important;
+    background-image: none !important;
+}
+
+#app-mount :is(.sidebar_pog62O)::after {
+    background-color: var(--az-sidebar) !important;
+}
+
+#app-mount :is([class^="membersWrap_"], [class*=" membersWrap_"],
+    [class^="nowPlayingColumn_"], [class*=" nowPlayingColumn_"],
+    [class^="profilePanel_"], [class*=" profilePanel_"]) {
+    background-color: var(--az-sidebar) !important;
+    box-shadow: inset 1px 0 var(--az-line);
+}
+
+#app-mount :is([class^="members_"], [class*=" members_"]) > div {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="panels_"], [class*=" panels_"]) {
+    background-color: var(--az-card) !important;
+    border: 1px solid var(--az-line);
+    border-radius: var(--az-radius);
+    box-shadow: 0 4px 16px #0002;
+}
+
+#app-mount :is([class^="panels_"], [class*=" panels_"]) > :is([class^="container_"], [class*=" container_"],
+    [class^="wrapper_"], [class*=" wrapper_"],
+    [class^="activityPanel_"], [class*=" activityPanel_"],
+    [class^="connection_"], [class*=" connection_"],
+    [class^="rtcConnectionStatus_"], [class*=" rtcConnectionStatus_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is(.bar_3zSH5d, [class^="titleBar_"], [class*=" titleBar_"]) {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+#app-mount .bar_3zSH5d > :is([class^="leading_"], [class*=" leading_"])::before {
+    content: var(--az-brand);
+    display: var(--az-brand-display) !important;
+    box-sizing: border-box;
+    font-family: var(--az-logo-font), "Segoe UI", sans-serif;
+    font-size: var(--az-logo-size);
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: var(--az-logo-spacing);
+    text-align: center;
+    white-space: nowrap;
+    color: var(--az-logo-color);
+    background: linear-gradient(115deg, transparent 27%, rgba(255, 255, 255, .22) 49%, transparent 71%) 145% 0 / 280% 100% no-repeat, linear-gradient(150deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, 0) 80%), var(--az-card);
+    border: 1px solid color-mix(in srgb, var(--az-logo-glow) 23%, transparent);
+    border-radius: var(--az-logo-radius);
+    padding: 3px 9px;
+    min-width: 73px;
+    box-shadow: inset 0 1px 0 #ffffff14, 0 2px 5px #0003;
+    text-shadow: 0 1px 2px #0005;
+    transition: transform var(--az-logo-speed) ease, box-shadow var(--az-logo-speed) ease, border-color var(--az-logo-speed) ease, text-shadow var(--az-logo-speed) ease, color var(--az-logo-speed) ease, background-position calc(var(--az-logo-speed) * 2.5) ease;
+    cursor: default;
+    margin-inline-start: 8px;
+    flex-shrink: 0;
+    pointer-events: auto;
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+}
+
+#app-mount .bar_3zSH5d > :is([class^="leading_"], [class*=" leading_"]):hover:not(:has(> :hover))::before {
+    transform: translateY(var(--az-logo-lift));
+    color: #fff;
+    border-color: color-mix(in srgb, var(--az-logo-glow) 70%, transparent);
+    box-shadow: inset 0 1px 0 #ffffff40, 0 2px 10px color-mix(in srgb, var(--az-logo-glow) 36%, transparent);
+    text-shadow: 0 0 8px var(--az-logo-glow);
+    background-position: -45% 0, 0 0, 0 0;
+}
+
+#app-mount :is([class^="chat_"], [class*=" chat_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="shop_"], [class*=" shop_"],
+    [class^="tabBody_"], [class*=" tabBody_"]) > :is([class^="header_"], [class*=" header_"],
+    [class^="toolbar_"], [class*=" toolbar_"],
+    [class^="container_"], [class*=" container_"]):has(> :is([class^="toolbar_"], [class*=" toolbar_"],
+    [class^="children_"], [class*=" children_"],
+    [class^="tabBar_"], [class*=" tabBar_"])),
+#app-mount :is(.container__9293f, .header_XH4OpX) {
+    background-color: var(--az-glass) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--az-line);
+}
+
+#app-mount :is(.container_oDjP9R, [class^="settingsModal_"], [class*=" settingsModal_"], [class^="modalContent_"], [class*=" modalContent_"]):has(:is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"],
+    [class^="settingsSidebar_"], [class*=" settingsSidebar_"],
+    [class^="sidebarRegion_"], [class*=" sidebarRegion_"])) {
+    background-color: var(--az-modal) !important;
+    background-image: none !important;
+    backdrop-filter: blur(var(--az-popup-blur)) saturate(var(--az-saturate));
+    border: 1px solid var(--az-line);
+    border-radius: calc(var(--az-radius) * 1.4);
+}
+
+#app-mount :is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"]) {
+    background-color: var(--az-modal) !important;
+    background-image: none !important;
+    backdrop-filter: blur(var(--az-popup-blur)) saturate(var(--az-saturate));
+    border-radius: calc(var(--az-radius) * 1.2);
+}
+
+#app-mount :is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"]) :is([class^="sidebar_"], [class*=" sidebar_"],
+    [class^="content_"], [class*=" content_"],
+    [class^="contentRegion_"], [class*=" contentRegion_"],
+    [class^="contentRegionScroller_"], [class*=" contentRegionScroller_"],
+    [class^="sidebarRegion_"], [class*=" sidebarRegion_"],
+    [class^="sidebarRegionScroller_"], [class*=" sidebarRegionScroller_"],
+    [class^="settingsSidebar_"], [class*=" settingsSidebar_"],
+    [class^="settingsContent_"], [class*=" settingsContent_"],
+    [class^="contentColumn_"], [class*=" contentColumn_"],
+    [class^="scroller_"], [class*=" scroller_"],
+    [class^="scrollerBase_"], [class*=" scrollerBase_"],
+    [class^="header_"], [class*=" header_"],
+    [class^="body_"], [class*=" body_"],
+    [class^="footer_"], [class*=" footer_"],
+    [class^="section_"], [class*=" section_"],
+    [class^="panel_"], [class*=" panel_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount [role="dialog"]:has(:is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"],
+    [class^="settingsSidebar_"], [class*=" settingsSidebar_"])) {
+    background-color: var(--az-modal) !important;
+    background-image: none !important;
+    backdrop-filter: blur(var(--az-popup-blur)) saturate(var(--az-saturate));
+    border-radius: calc(var(--az-radius) * 1.4);
+}
+
+#app-mount :is([class^="mainPageScroller_"], [class*=" mainPageScroller_"],
+    [class^="allPerksScroller_"], [class*=" allPerksScroller_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="homeWrapper_"], [class*=" homeWrapper_"],
+    [class^="containerBackground_"], [class*=" containerBackground_"],
+    [class^="shop_"], [class*=" shop_"],
+    [class^="shopScroll_"], [class*=" shopScroll_"],
+    [class^="questHome_"], [class*=" questHome_"],
+    [class^="questHomePage_"], [class*=" questHomePage_"],
+    [class^="questsPage_"], [class*=" questsPage_"],
+    [class^="questPage_"], [class*=" questPage_"],
+    [class^="discoveryPage_"], [class*=" discoveryPage_"],
+    [class^="discoveryContainer_"], [class*=" discoveryContainer_"],
+    [class^="pageContainer_"], [class*=" pageContainer_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is(.shop_Mqg79R, .shop_XBXDcd, .shopScroll__08415, .scroller_jkJlMe, .mainPageScroller_ca1a02, .allPerksScroller_ca1a02, .containerBackground_f48ee4, .scroller_f48ee4, .page_4Qm5zV, .shopScroll_4Qm5zV) {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+#app-mount :is(.shop_Mqg79R, .shop_XBXDcd, .scroller_jkJlMe, .applicationStore_6U3jXZ, :is([class^="shop_"], [class*=" shop_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="questHome_"], [class*=" questHome_"],
+    [class^="questHomePage_"], [class*=" questHomePage_"],
+    [class^="questsPage_"], [class*=" questsPage_"],
+    [class^="questPage_"], [class*=" questPage_"],
+    [class^="discoveryPage_"], [class*=" discoveryPage_"])) :is([class^="header_"], [class*=" header_"],
+    [class^="navigation_"], [class*=" navigation_"],
+    [class^="navBar_"], [class*=" navBar_"],
+    [class^="stickyHeader_"], [class*=" stickyHeader_"],
+    [class^="shopHeader_"], [class*=" shopHeader_"],
+    [class^="pageHeader_"], [class*=" pageHeader_"]) {
+    background-color: var(--az-card) !important;
+    background-image: none !important;
+}
+
+#app-mount :is([class^="shop_"], [class*=" shop_"],
+    [class^="applicationStore_"], [class*=" applicationStore_"],
+    [class^="questsPage_"], [class*=" questsPage_"],
+    [class^="questHome_"], [class*=" questHome_"],
+    [class^="questPage_"], [class*=" questPage_"]) :is([class^="productCard_"], [class*=" productCard_"],
+    [class^="questCard_"], [class*=" questCard_"],
+    [class^="benefitCard_"], [class*=" benefitCard_"],
+    [class^="perkCard_"], [class*=" perkCard_"],
+    [class^="itemCard_"], [class*=" itemCard_"]) {
+    background-color: var(--az-card) !important;
+    border-color: var(--az-line) !important;
+    border-radius: var(--az-radius);
+}
+
+#app-mount :is([class^="channelTextArea_"], [class*=" channelTextArea_"],
+    [class^="scrollableContainer_"], [class*=" scrollableContainer_"]) {
+    background-color: var(--az-input) !important;
+    background-image: none !important;
+    border-radius: calc(var(--az-radius) * 1.2) !important;
+    box-shadow: none !important;
+}
+
+#app-mount :is([class^="channelTextArea_"], [class*=" channelTextArea_"]) :is([class^="scrollableContainer_"], [class*=" scrollableContainer_"],
+    [class^="inner_"], [class*=" inner_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="embedFull_"], [class*=" embedFull_"],
+    [class^="embedWrapper_"], [class*=" embedWrapper_"],
+    [class^="containerMedia_"], [class*=" containerMedia_"],
+    [class^="mosaicItem_"], [class*=" mosaicItem_"],
+    [class^="card_"], [class*=" card_"],
+    [class^="itemCard_"], [class*=" itemCard_"],
+    [class^="searchResult_"], [class*=" searchResult_"],
+    [class^="messageGroupCozy_"], [class*=" messageGroupCozy_"]) {
+    background-color: var(--az-card) !important;
+    border-color: var(--az-line);
+    border-radius: var(--az-radius);
+}
+
+#app-mount :is([class^="message_"], [class*=" message_"]) :is([class^="container_"], [class*=" container_"]):has(> :is([class^="textDisplay_"], [class*=" textDisplay_"],
+    [class^="section_"], [class*=" section_"],
+    [class^="separator_"], [class*=" separator_"],
+    [class^="mediaGallery_"], [class*=" mediaGallery_"],
+    [class^="actionRow_"], [class*=" actionRow_"])) {
+    background-color: var(--az-card) !important;
+    border-color: var(--az-line);
+}
+
+#app-mount :is([class^="message_"], [class*=" message_"]) :is([class^="mentioned_"], [class*=" mentioned_"],
+    [class^="selected_"], [class*=" selected_"]) {
+    background-color: rgba(234, 184, 95, .08) !important;
+}
+
+#app-mount :is([class^="mentioned_"], [class*=" mentioned_"]) {
+    background-color: rgba(234, 184, 95, .09) !important;
+}
+
+#app-mount :is([class^="markup_"], [class*=" markup_"]) code {
+    background-color: var(--az-input) !important;
+    border-color: var(--az-line) !important;
+    border-radius: calc(var(--az-radius) * 0.7);
+}
+
+#app-mount :is([class^="markup_"], [class*=" markup_"]) pre {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#app-mount :is([class^="markup_"], [class*=" markup_"]) pre code {
+    background: var(--az-input) !important;
+    border: 1px solid var(--az-line) !important;
+    box-sizing: border-box;
+    box-shadow: none !important;
+}
+
+#app-mount :is([class^="searchResultsWrap_"], [class*=" searchResultsWrap_"],
+    [class^="threadSidebarOpen_"], [class*=" threadSidebarOpen_"],
+    [class^="browser_"], [class*=" browser_"],
+    [class^="forumPage_"], [class*=" forumPage_"],
+    [class^="forumPost_"], [class*=" forumPost_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="userPanelOuter_"], [class*=" userPanelOuter_"],
+    [class^="userPanelInner_"], [class*=" userPanelInner_"],
+    [class^="fullSizeOuter_"], [class*=" fullSizeOuter_"],
+    [class^="profilePanelConnections_"], [class*=" profilePanelConnections_"],
+    [class^="overlayBackground_"], [class*=" overlayBackground_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="profilePanel_"], [class*=" profilePanel_"],
+    [class^="userPanelOuter_"], [class*=" userPanelOuter_"],
+    [class^="fullSizeOuter_"], [class*=" fullSizeOuter_"]) :is([class^="body_"], [class*=" body_"],
+    [class^="scroller_"], [class*=" scroller_"],
+    [class^="scrollerBase_"], [class*=" scrollerBase_"],
+    [class^="section_"], [class*=" section_"],
+    [class^="footer_"], [class*=" footer_"],
+    [class^="profilePanelConnections_"], [class*=" profilePanelConnections_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="userPanelOuter_"], [class*=" userPanelOuter_"],
+    [class^="userPanelInner_"], [class*=" userPanelInner_"],
+    [class^="fullSizeOuter_"], [class*=" fullSizeOuter_"])::before,
+#app-mount :is([class^="userPanelOuter_"], [class*=" userPanelOuter_"],
+    [class^="userPanelInner_"], [class*=" userPanelInner_"],
+    [class^="fullSizeOuter_"], [class*=" fullSizeOuter_"])::after {
+    background-color: transparent !important;
+}
+
+#app-mount :is([class^="menu_"], [class*=" menu_"],
+    [class^="popout_"], [class*=" popout_"],
+    [class^="userPopoutOuter_"], [class*=" userPopoutOuter_"],
+    [class^="userProfileModalOuter_"], [class*=" userProfileModalOuter_"],
+    [class^="emojiPicker_"], [class*=" emojiPicker_"],
+    [class^="expressionPicker_"], [class*=" expressionPicker_"],
+    [class^="popoutContainer_"], [class*=" popoutContainer_"],
+    [class^="autocomplete_"], [class*=" autocomplete_"],
+    [class^="reactionTooltip_"], [class*=" reactionTooltip_"],
+    [class^="quickSelectPopout_"], [class*=" quickSelectPopout_"],
+    [class^="searchPopout_"], [class*=" searchPopout_"],
+    [class^="soundboardPicker_"], [class*=" soundboardPicker_"],
+    [class^="containerExpanded_"], [class*=" containerExpanded_"]) {
+    background-color: var(--az-popup) !important;
+    border: 1px solid var(--az-line);
+    border-radius: calc(var(--az-radius) * 1.2);
+    backdrop-filter: blur(var(--az-popup-blur)) saturate(var(--az-saturate));
+}
+
+#app-mount [role="menu"],
+#app-mount [role="listbox"]:not([aria-multiselectable="true"]) {
+    background-color: var(--az-popup) !important;
+    border-radius: var(--az-radius);
+}
+
+#app-mount [role="dialog"]:not(:has(:is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"]))) > :is([class^="root_"], [class*=" root_"],
+    [class^="modal_"], [class*=" modal_"],
+    [class^="modalContent_"], [class*=" modalContent_"]) {
+    background-color: var(--az-modal) !important;
+    border-radius: calc(var(--az-radius) * 1.4);
+}
+
+#app-mount :is([class^="searchBarComponent_"], [class*=" searchBarComponent_"],
+    [class^="searchBar_"], [class*=" searchBar_"]) {
+    background-color: var(--az-input) !important;
+    border-radius: var(--az-radius);
+    box-shadow: none !important;
+}
+
+#app-mount :is([class^="searchBar_"], [class*=" searchBar_"]) :is([class^="searchBarComponent_"], [class*=" searchBarComponent_"]) {
+    background-color: transparent !important;
+}
+
+#app-mount :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), textarea):not([role="combobox"]) {
+    border-color: var(--az-line);
+}
+
+#app-mount :is([class^="modeSelected_"], [class*=" modeSelected_"]) :is([class^="link_"], [class*=" link_"]),
+#app-mount :is([class^="interactive_"], [class*=" interactive_"])[aria-selected="true"],
+#app-mount :is([class^="tabBar_"], [class*=" tabBar_"]) [aria-selected="true"] {
+    background-color: var(--az-selected) !important;
+    border-radius: calc(var(--az-radius) * 0.8);
+}
+
+#app-mount :is([class^="peopleListItem_"], [class*=" peopleListItem_"]):hover,
+#app-mount :is([class^="member_"], [class*=" member_"]):hover,
+#app-mount :is([class^="interactive_"], [class*=" interactive_"]):hover {
+    background-color: var(--az-hover) !important;
+}
+
+#app-mount :is([class^="lookFilled_"], [class*=" lookFilled_"]):is([class*="colorBrand"], [class*="colorPrimary"]) {
+    background-color: rgba(var(--az-button-rgb), var(--az-legacy-button-opacity)) !important;
+    color: var(--az-text) !important;
+    border-radius: calc(var(--az-radius) * 0.8);
+}
+
+#app-mount :is([class^="lookFilled_"], [class*=" lookFilled_"]):is([class*="colorBrand"], [class*="colorPrimary"]):hover {
+    background-color: rgba(var(--az-button-rgb), var(--az-legacy-hover-opacity)) !important;
+}
+
+#app-mount :is([class^="tooltip_"], [class*=" tooltip_"]) {
+    background-color: var(--az-popup) !important;
+    border: 1px solid var(--az-line);
+    border-radius: calc(var(--az-radius) * 0.8);
+}
+
+#app-mount :is(.vc-settings-card, .vc-settings-quickActions-card, .vc-addon-card, .bd-addon-card, .bd-setting-item, .bd-settings-group) {
+    background-color: var(--az-card) !important;
+    border-color: var(--az-line) !important;
+    border-radius: calc(var(--az-radius) * 0.8);
+}
+
+#app-mount :is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"]) {
+    background-color: #20232e !important;
+    background-image: linear-gradient(rgba(15, 18, 26, var(--az-settings-dim)), rgba(12, 15, 23, var(--az-settings-dim-bottom))), var(--az-wallpaper), linear-gradient(155deg, var(--az-fallback-top), var(--az-fallback-middle) 62%, var(--az-fallback-bottom)) !important;
+    background-size: cover, var(--az-wallpaper-size), cover !important;
+    background-position: center, var(--az-position), center !important;
+    background-attachment: fixed !important;
+    backdrop-filter: none;
+}
+
+#app-mount :is([class^="modalContentInner_"], [class*=" modalContentInner_"],
+    [class^="standardSidebarView_"], [class*=" standardSidebarView_"]) :is([class^="sidebar_"], [class*=" sidebar_"],
+    [class^="sidebarRegionScroller_"], [class*=" sidebarRegionScroller_"]) {
+    background-color: var(--az-sidebar) !important;
+}
